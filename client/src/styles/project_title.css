@@ -1,0 +1,69 @@
+.container {
+  /* position: relative; */
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+}
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.container .content {
+  margin: var(--margin-all);
+  text-align: center;
+}
+.container .content > div {
+  /* height: 22rem; */
+  line-height: 1;
+  font-size: 15rem;
+  color: #fff;
+  font-family: var(--main-font);
+  font-weight: 400;
+  text-shadow: 4px 4px #4788a0;
+  text-transform: uppercase;
+  transform: scaleY(1.5);
+}
+
+.container .content > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.container .content ul li {
+  position: relative;
+}
+
+.container .content ul li h2 {
+  font-weight: 500;
+  font-family: var(--section-font);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px #4788a0;
+}
+
+.container .content ul li:not(:first-child):before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 992px) {
+  .container .content > div {
+    font-size: 10rem !important;
+  }
+
+  .container .content ul li h2 {
+    font-size: 1.5rem !important;
+  }
+}

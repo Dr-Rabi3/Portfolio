@@ -1,0 +1,34 @@
+.container {
+  margin: var(--margin-all);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container .title {
+  transform: scaleY(1.5);
+  font-family: var(--main-font);
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.container .title::after, .title::before{
+  content: '';
+  position: absolute;
+  width: 30%;
+  height: 2px;
+  background-color: #89cff047;
+  right: 0rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.container .title::before{
+  left: 0rem;
+}
+
+.container .text {
+  font-family: var(--special-font);
+}

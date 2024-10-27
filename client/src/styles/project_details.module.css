@@ -1,0 +1,25 @@
+.container {
+  margin: var(--margin-all);
+  display: grid;
+  grid-template-columns: minmax(20%, 30%) 1fr;
+  position: relative;
+}
+
+.container .forScroll{
+  position: relative;
+  width: 50%;
+  border-right: 2px solid #89cff047;
+}
+
+.container > div:first-child {
+  grid-row: span 2;
+}
+
+@media (max-width: 769px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .container > div:first-child {
+    display: none;
+  }
+}

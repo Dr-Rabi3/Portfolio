@@ -1,0 +1,32 @@
+.container {
+  margin: var(--margin-all);
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.list {
+  font-family: var(--section-font);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.list li {
+  height: fit-content;
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transform: scaleY(1.2);
+}
+
+.list li:not(:first-child)::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+} 

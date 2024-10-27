@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
+  width: 100%;
+  height: 100vh;
+  user-select: none; /* For modern browsers */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For Internet Explorer/Edge */
+}
+
+.container div {
+  text-align: center;
+  width: 70%;
+}
