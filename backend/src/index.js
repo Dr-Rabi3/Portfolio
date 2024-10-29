@@ -1,8 +1,8 @@
 // src/server.js
 const dotenv = require("dotenv");
-const connectDB = require("../config/db");
-const app = require("../app");
-const logger = require("../utils/logger");
+const connectDB = require("./config/db");
+const app = require("./app");
+const logger = require("./utils/logger");
 
 dotenv.config();
 
