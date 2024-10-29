@@ -11,10 +11,11 @@ export default function MainInfo() {
         <h3>Software Engineer & Web Developer</h3>
         <h5>Available for a full-time position</h5>
         <p>
-          I'm study Computer Science, and learn more about Data Structure, OOP,
-          Algorithm, and Web Development. Learning a variety of skills allows you to
-          approach challenges from multiple perspectives. I'm currently
-          available for a full-time position.
+          I am studying Computer Science and focusing on Data Structures,
+          Object-Oriented Programming (OOP), Algorithms, and Web Development.
+          Learning a variety of skills enables me to approach challenges from
+          multiple perspectives. I am currently available for a
+          full-time position.
         </p>
         <ReadMore content="Learn more" url="/about" />
       </div>
