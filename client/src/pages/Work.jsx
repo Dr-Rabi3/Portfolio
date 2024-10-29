@@ -13,7 +13,7 @@ export default function Work() {
       staleTime: 10000,
     });
   const projects = data?.data || [];
-  // console.log(data);
+
   return (
     <div className={classes.container}>
       <div className={classes.title}>

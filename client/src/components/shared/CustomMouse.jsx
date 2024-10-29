@@ -104,7 +104,6 @@ export default function CustomMouse() {
 
     followMouse();
   }, []);
-  // console.log(cursorStyle);
 
   // Add event listeners to change cursor style on hover
   useEffect(() => {
@@ -166,7 +165,7 @@ export default function CustomMouse() {
   }, [copy, cursorStyle]);
 
   useEffect(() => {
-    // console.log(copy);
+
     if (cursorStyle === "footer-haver")
       positionRef.current.text = !copy ? "Copied" : "Copy";
   }, [copy, cursorStyle]);

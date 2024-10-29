@@ -28,7 +28,7 @@ export default function Home() {
     staleTime: 10000,
   });
   const projects = data?.data || [];
-  // console.log(projects);
+
   return (
     <>
       <MainInfo />

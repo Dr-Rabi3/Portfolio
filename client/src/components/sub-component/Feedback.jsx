@@ -36,7 +36,7 @@ export default function Feedback({ projectId, ...props }) {
 
   const handleLikeUnlike = async () => {
     if (liked) return;
-    console.log(liked);
+    // console.log(liked);
     mutateLike({ id: projectId });
   };
 

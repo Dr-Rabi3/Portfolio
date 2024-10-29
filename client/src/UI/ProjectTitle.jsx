@@ -16,7 +16,8 @@ export default function ProjectTitle({ project }) {
     });
   }, []);
   const particlesLoaded = (container) => {
-    // console.log(container);
+
+
   };
   const options = useMemo(
     () => ({
@@ -92,8 +93,8 @@ export default function ProjectTitle({ project }) {
     []
   );
 
-  // console.log(project);
 
+  
   if (init) {
     const classify = project.classification.split("/");
     return (

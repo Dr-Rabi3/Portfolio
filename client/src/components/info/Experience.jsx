@@ -13,7 +13,7 @@ export default function Experience() {
   });
 
   const awards = data?.data || [];
-  console.log(awards);
+
   return (
     <div className={classes.container}>
       <InsideSectionTitle title="Awards" />
