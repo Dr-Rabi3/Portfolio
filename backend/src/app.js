@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 
-
 const projectsRoutes = require("./routes/projectRoutes");
 const skillsRoutes = require("./routes/skillRoutes");
 const awardsRoutes = require("./routes/awardRoutes");
@@ -24,6 +23,7 @@ app.use(express.json());
 // Serve static files
 app.use(express.static(path.join(__dirname, "../public")));
 
+app.get("/", (req, res, next) => res.send({ message: "Hello, in MY Portfolio!" }));
 app.use("/projects", projectsRoutes);
 app.use("/toolboxes", toolboxesRoutes);
 app.use("/awards", awardsRoutes);
