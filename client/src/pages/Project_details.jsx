@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 import classes from "../styles/project_details.module.css";
+import { decryptData, encryptData } from "../Util/crypt";
 
 import ProjectTitle from "../UI/ProjectTitle";
 import Sidebar from "../components/sub-component/Sidebar";
@@ -10,17 +11,22 @@ import DetailsSpace from "../components/sub-component/DetailsSpace";
 
 export default function ProjectDetails() {
   const location = useLocation();
-
   const { state: project } = location || {};
-  // useEffect(() => {
-  //   if (project) {
-  //     localStorage.setItem("savedProject", JSON.stringify(project));
-  //   }
-  // }, [project]);
-  // const savedProject = JSON.parse(localStorage.getItem("savedProject"));
-  const currentProject = project;
+
+  useEffect(() => {
+    if (project) {
+      const encryptedProject = encryptData(project);
+      localStorage.setItem("savedProject", encryptedProject);
+    }
+  }, [project]);
+  
+  
+  const savedProjectData = localStorage.getItem("savedProject");
+  const savedProject = savedProjectData ? decryptData(savedProjectData) : null;
+
+  const currentProject = project || savedProject;
   const sub_titles = [];
-  if (currentProject.details) {
+  if (currentProject && currentProject.details) {
     currentProject.details.forEach((detail) => {
       sub_titles.push(detail["sub-title"]);
     });

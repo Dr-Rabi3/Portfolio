@@ -1,4 +1,3 @@
-// src/middlewares/errorHandler.js
 const logger = require("../utils/logger");
 
 const errorHandler = (err, req, res, next) => {

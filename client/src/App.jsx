@@ -10,7 +10,7 @@ import Project from "./pages/Project_details.jsx";
 import Work from "./pages/Work.jsx";
 import NotSupported from "./pages/NotSupported.jsx";
 import CustomMouse from "./components/shared/CustomMouse.jsx";
-import { CopyTextProvider } from "./context/CopyTextProvider.js";
+import { CopyTextProvider } from "./store/CopyTextProvider.js";
 import NotFound from "./pages/NotFound.jsx";
 
 const router = createBrowserRouter([

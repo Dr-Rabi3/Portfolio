@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import classes from "../../styles/footer.module.css";
 import ReadMore from "../../UI/Readmore.jsx";
-import CopyText from "../../context/CopyText.js";
+import CopyText from "../../store/CopyText.js";
 
 export default function Footer() {
   const { setCopy } = useContext(CopyText); // Use context

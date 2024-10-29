@@ -1,4 +1,3 @@
-// create rout for all function (get,post,...)
 
 const express = require("express");
 const router = express.Router();

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "../../styles/custom_mouse.css";
-import CustomCursorContext from "../../context/CustomCursorContext.js";
-import CopyText from "../../context/CopyText.js";
+import CustomCursorContext from "../../store/CustomCursorContext.js";
+import CopyText from "../../store/CopyText.js";
 export default function CustomMouse() {
   const { type } = useContext(CustomCursorContext);
   const { copy } = useContext(CopyText);

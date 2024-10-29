@@ -1,6 +1,3 @@
-// create function that will use the service
-// catch and throw exception
-
 const _ = require("lodash");
 
 const projectService = require("../services/projectService");
