@@ -1,5 +1,3 @@
-// src/Util/DeviceCheck.jsx
-
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,15 +5,26 @@ const DeviceCheck = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isMobile = /mobile|android|iphone|ipad|tablet/i.test(userAgent);
-    if (isMobile) {
-      // Redirect to a "not supported" page if on a mobile device
-      navigate("/not-supported"); // Use navigate instead of history.push
-    }
+    const checkDevice = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobile = /mobile|android|iphone|ipad|tablet/i.test(userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+
+      if (isMobile || isSmallScreen) {
+        // Navigate to the "not supported" page only once if the device is unsupported
+        navigate("/not-supported", { replace: true });
+      } else navigate("/");
+    };
+
+    checkDevice(); // Initial device check on component mount
+    window.addEventListener("resize", checkDevice); // Check again on window resize
+
+    return () => {
+      window.removeEventListener("resize", checkDevice); // Clean up on unmount
+    };
   }, [navigate]);
 
-  return <>{children}</>; // Render children if not a mobile device
+  return <>{children}</>; // Render children if device is supported
 };
 
 export default DeviceCheck;

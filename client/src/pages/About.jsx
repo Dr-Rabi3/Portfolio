@@ -22,18 +22,15 @@ export default function About() {
           </div>
         </div>
         <div className={classes.info}>
-          <h2>I am Mohamed Abdelrazek Abdo &#128075;</h2>
-          <h3>
-            A graduate of the Faculty of Computers and Information, Department
-            of Computer Science.
-          </h3>
+          <h2>I’m Mohamed Abdelrazek Abdo &#128075;</h2>
+          <h3>Bachelar of Computer science.</h3>
           <p>
-            I love this field and aspire to be a software engineer in one of the
-            companies. In addition to that, I am studying some web technology in
-            an attempt to become a full stack developer. And here you are in one
-            of my applications in the web field. I am happy for you to visit my
-            site.
+            I am passionate about this field and aspire to become a software
+            engineer. I am also studying web technologies to build my skills as
+            a full-stack developer. Here, you’ll find one of my web
+            applications, and I’d be delighted for you to visit my site.
           </p>
+          <h5>Available for a full-time position</h5>
           <ReadMore
             url={process.env.REACT_APP_BACKEND_URL + "files/CV.pdf"}
             content="Download CV"

@@ -23,13 +23,19 @@
   margin-bottom: 2rem;
 }
 
-.container .content .email{
-  font-size: 5rem !important;
+.container .content .email {
+  font-size: 5rem;
   transform: scaleY(1.5);
   width: 100%;
   text-align: center;
   /* font-weight: 100; */
   cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .container .content .email {
+    font-size: 3rem;
+  }
 }
 
 .container .content .links {
@@ -49,11 +55,11 @@
   font-weight: 100;
 }
 
-.container .footer div:not(:nth-child(2)){
+.container .footer div:not(:nth-child(2)) {
   opacity: 0.4;
   font-size: 1.2rem;
 }
-.container .footer div:nth-child(2){
+.container .footer div:nth-child(2) {
   position: relative;
 }
 .container .footer div:nth-child(2):before {
@@ -67,4 +73,3 @@
   top: 50%;
   transform: translateY(-50%);
 }
-

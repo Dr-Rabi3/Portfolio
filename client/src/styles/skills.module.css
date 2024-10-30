@@ -9,6 +9,7 @@
   grid-template-columns: 1fr 1fr;
   font-weight: 200;
   font-family: var(--special-font);
+  gap: 3rem;
 }
 
 @media (min-width: 600px) and (max-width: 992px) {

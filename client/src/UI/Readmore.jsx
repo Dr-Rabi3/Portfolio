@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function ReadMore({ content, url, download, ...props }) {
+export default function ReadMore({ content, url, download, inPage, ...props }) {
+
   return (
     <div className="more" {...props}>
       <span>
@@ -25,7 +26,7 @@ export default function ReadMore({ content, url, download, ...props }) {
         <Link
           to={url}
           download="CV.pdf"
-          target="_blank" // Open in a new tab
+          target="_blank"
           rel="noopener noreferrer" // Recommended for security reasons
           data-text={content}
         >
@@ -34,7 +35,7 @@ export default function ReadMore({ content, url, download, ...props }) {
       ) : (
         <Link
           to={url}
-          target="_blank" // Open in a new tab
+          target={inPage ? "_self" : "_blank"} // Open in a new tab
           rel="noopener noreferrer" // Recommended for security reasons
           data-text={content}
         >

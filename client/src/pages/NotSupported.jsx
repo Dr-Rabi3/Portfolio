@@ -15,7 +15,9 @@ const NotSupported = () => {
 
     const userAgent = navigator.userAgent.toLowerCase();
     const isMobile = /mobile|android|iphone|ipad|tablet/i.test(userAgent);
-    if (!isMobile) {
+    const isSmallScreen = window.innerWidth <= 768;
+
+    if (!isMobile && !isSmallScreen) {
       navigate("/");
     }
   }, [navigate]);
@@ -26,7 +28,7 @@ const NotSupported = () => {
         enable: false,
         zIndex: -1,
       },
-      fpsLimit: 120,
+      fpsLimit: 60, // Lower FPS for mobile
       interactivity: {
         events: {
           onClick: {
@@ -34,7 +36,7 @@ const NotSupported = () => {
             mode: "push",
           },
           onHover: {
-            enable: true,
+            enable: true, // Disable hover on small screens
             mode: "grab",
           },
         },
@@ -43,7 +45,7 @@ const NotSupported = () => {
             linked: 72,
           },
           push: {
-            quantity: 4,
+            quantity: 2,
           },
           repulse: {
             distance: 200,
@@ -58,7 +60,7 @@ const NotSupported = () => {
         },
         links: {
           color: "#f3fbff",
-          distance: 150,
+          distance: 160,
           enable: true,
           opacity: 0.5,
           width: 1,
@@ -76,8 +78,9 @@ const NotSupported = () => {
         number: {
           density: {
             enable: true,
+            area: 100, // Smaller area for mobile
           },
-          value: 400,
+          value: 200, // Fewer particles on mobile
         },
         opacity: {
           value: 0.71,

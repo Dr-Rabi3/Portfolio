@@ -14,10 +14,17 @@ export default function MainInfo() {
           I am studying Computer Science and focusing on Data Structures,
           Object-Oriented Programming (OOP), Algorithms, and Web Development.
           Learning a variety of skills enables me to approach challenges from
-          multiple perspectives. I am currently available for a
-          full-time position.
+          multiple perspectives. I am currently available for a full-time
+          position.
         </p>
-        <ReadMore content="Learn more" url="/about" />
+        <div style={{display:"flex", gap:"3rem"}}>
+        <ReadMore content="Learn more" url="/about" inPage={true} />
+        <ReadMore
+          url={process.env.REACT_APP_BACKEND_URL + "files/CV.pdf"}
+          content="Download CV"
+          download={true}
+        />
+        </div>
       </div>
       <div className={classes["image-box"]}>
         <div className={classes["image-back"]}>

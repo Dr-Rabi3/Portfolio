@@ -153,6 +153,25 @@
   font-size: 1rem;
 }
 
+.info h5 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-left: 1.4rem;
+  position: relative;
+}
+
+.info h5::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--online-color);
+  border-radius: 50%;
+  left: -1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .info p {
   font-size: 1.5rem;
   margin-top: 1.5rem;
