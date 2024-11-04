@@ -3,9 +3,11 @@
   flex-direction: column;
   gap: 2rem;
   height: fit-content;
-  width: 11rem;
+  /* max-width: 15rem; */
+
   position: sticky;
   top: 7rem;
+  padding-right:3rem;
 }
 
 .container > div {
@@ -38,4 +40,11 @@
   transform: translateY(-50%);
   left: -20px;
   transition: 0.5s;
+}
+
+
+@media (max-width : 991px) {
+  .container {
+  padding-right:0.5rem;
+  }
 }
