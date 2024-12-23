@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
 
 import classes from "../../styles/skills.module.css";
@@ -15,7 +16,14 @@ export default function Skills() {
   const skills = data?.data || [];
   return (
     <div className={classes.container}>
-      <InsideSectionTitle title="Skills" />
+      <motion.div
+        initial={{ x: -300 }}
+        whileInView={{ x: 0 }}
+        viewport={{ once: true }} // Trigger when 50% of <ul> is in view
+        transition={{ duration: 0.5, type: "keyframes" }}
+      >
+        <InsideSectionTitle title="Skills" />
+      </motion.div>
       {isLoading && <p style={{ textAlign: "center" }}>Loading...</p>}
       {isError && (
         <p style={{ textAlign: "center" }}>
@@ -23,7 +31,13 @@ export default function Skills() {
         </p>
       )}
       {skills && (
-        <div className={classes.content}>
+        <motion.div
+          initial={{ x: 300 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: true }} // Trigger when 50% of <ul> is in view
+          transition={{ duration: 0.5, type: "keyframes" }}
+          className={classes.content}
+        >
           {skills.map((skill) => {
             return (
               <div key={skill._id}>
@@ -36,7 +50,7 @@ export default function Skills() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       )}
     </div>
   );

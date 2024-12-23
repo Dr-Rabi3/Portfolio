@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import classes from "../../styles/sidebar.module.css";
 
@@ -24,10 +25,26 @@ export default function Sidebar({ sub_titles }) {
     };
   }, [activeHash]);
 
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -200 }, // Starting state (off-screen)
+    visible: (index) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: index * 0.3, // Stagger each item by 0.3s
+        duration: 0.5, // Animation duration
+      },
+    }),
+  };
+
   const listItems = Array.from({ length: sub_titles.length }, (_, index) => {
     const sectionId = `section${index + 1}`;
     return (
-      <li key={index}>
+      <motion.li
+        key={index}
+        variants={listItemVariants}
+        custom={index} // Pass index to control stagger timing
+      >
         <a
           href={"#" + sectionId}
           className={
@@ -39,7 +56,7 @@ export default function Sidebar({ sub_titles }) {
         >
           {sub_titles[index]}
         </a>
-      </li>
+      </motion.li>
     );
   });
 
@@ -47,18 +64,34 @@ export default function Sidebar({ sub_titles }) {
     <div className={classes.container}>
       <div>
         Project
-        <ul>{listItems}</ul>
+        <motion.ul
+          initial="hidden"
+          whileInView="visible" // Trigger animation when the <ul> comes into view
+          variants={{
+            visible: { transition: { staggerChildren: 0.3 } }, // Stagger animation for children (<li>)
+          }}
+          viewport={{ once: true }} // Trigger when 50% of the <ul> is in view
+        >
+          {listItems}
+        </motion.ul>
       </div>
-      <div>
+      <motion.div
+        initial={{ opacity: 0, x: -200 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ type: "keyframes" }}
+        viewport={{ once: true }} // Trigger when 50% of the <ul> is in view
+      >
         <a
           href={`#section${sub_titles.length + 1}`}
           className={
-            activeHash === `section${sub_titles.length + 1}` ? classes.active : ""
+            activeHash === `section${sub_titles.length + 1}`
+              ? classes.active
+              : ""
           }
         >
           Feedback
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 }

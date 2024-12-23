@@ -19,8 +19,7 @@ export default function ProjectDetails() {
       localStorage.setItem("savedProject", encryptedProject);
     }
   }, [project]);
-  
-  
+
   const savedProjectData = localStorage.getItem("savedProject");
   const savedProject = savedProjectData ? decryptData(savedProjectData) : null;
 
@@ -31,7 +30,6 @@ export default function ProjectDetails() {
       sub_titles.push(detail["sub-title"]);
     });
   }
-
   return (
     <>
       <ProjectTitle project={currentProject} />

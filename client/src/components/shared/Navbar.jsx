@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import classes from "../../styles/navbar.module.css";
@@ -8,7 +9,12 @@ export default function Navbar() {
   const current = location.pathname.split("/")[len - 1];
   return (
     <>
-      <nav className={classes.container + " " + classes.navbar}>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, type: "keyframes" }}
+        className={classes.container + " " + classes.navbar}
+      >
         <div className={classes.link + " on-before"}>
           <Link
             className={classes.logo + " " + classes.navLink}
@@ -52,7 +58,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-      </nav>
+      </motion.nav>
     </>
   );
 }

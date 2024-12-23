@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { motion } from "motion/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -27,8 +28,8 @@ export default function Home() {
     queryFn: fetchProjects,
     staleTime: 10000,
   });
-  const projects = data?.data || [];
 
+  const projects = data?.data || [];
   return (
     <>
       <MainInfo />
@@ -42,53 +43,55 @@ export default function Home() {
           Error: {error.message || "Something went wrong"}
         </p>
       )}
-      {projects && (
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          loop={true}
-          slidesPerView={"auto"}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 2.5,
-            slideShadows: true,
-          }}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            el: ".swiper-pagination",
-            clickable: true,
-            dynamicBullets: true,
-          }}
-          modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-          className="swiper-container"
-        >
-          {projects.map((project, idx) => (
-            <SwiperSlide
-              key={project._id}
-              style={{
-                maxWidth: "80rem",
-                maxHeight: "40rem",
-                overflow: "hidden",
-              }}
-            >
-              <NavLink to="/project-details" state={project}>
-                <Card {...project} order={idx & 1}>
-                  {project.title}
-                </Card>
-              </NavLink>
-            </SwiperSlide>
-          ))}
-          <div className="slider-controler">
-            <div className="swiper-pagination"></div>
-          </div>
-        </Swiper>
-      )}
+      <motion.div>
+        {projects && (
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            loop={true}
+            slidesPerView={"auto"}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 2.5,
+              slideShadows: true,
+            }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              el: ".swiper-pagination",
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+            className="swiper-container"
+          >
+            {projects.map((project, idx) => (
+              <SwiperSlide
+                key={project._id}
+                style={{
+                  maxWidth: "80rem",
+                  maxHeight: "40rem",
+                  overflow: "hidden",
+                }}
+              >
+                <NavLink to="/project-details" state={project} replace>
+                  <Card {...project} order={idx & 1}>
+                    {project.title}
+                  </Card>
+                </NavLink>
+              </SwiperSlide>
+            ))}
+            <div className="slider-controler">
+              <div className="swiper-pagination"></div>
+            </div>
+          </Swiper>
+        )}
+      </motion.div>
     </>
   );
 }

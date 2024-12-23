@@ -1,8 +1,8 @@
+import { motion } from "motion/react";
 import classes from "../../styles/details_space.module.css";
 import { Link } from "react-router-dom";
 
 export default function DetailsSpace({ data, ...props }) {
-  
   let content = "";
   if (data["sub-title"] === "Links") {
     const regex = /(\w+): (https?:\/\/[^\s,]+)/g;
@@ -67,9 +67,16 @@ export default function DetailsSpace({ data, ...props }) {
     );
   }
   return (
-    <div className={classes.container} {...props}>
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 0.5, type: "keyframes" }}
+      viewport={{ once: true }}
+      className={classes.container}
+      {...props}
+    >
       <h2>{data["sub-title"]}</h2>
       {content}
-    </div>
+    </motion.div>
   );
 }

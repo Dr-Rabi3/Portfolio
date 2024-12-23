@@ -23,7 +23,8 @@ app.use(express.json());
 // Serve static files
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.get("/", (req, res, next) => res.send({ message: "Hello, in MY Portfolio!" }));
+// app.get("/", (req, res, next) => res.send({ message: "Hello, in MY Portfolio!" }));
+
 app.use("/projects", projectsRoutes);
 app.use("/toolboxes", toolboxesRoutes);
 app.use("/awards", awardsRoutes);

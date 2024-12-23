@@ -1,5 +1,6 @@
 // for edit Particles :  https://vincentgarreau.com/particles.js/#default
 // main site for particles : https://github.com/tsparticles/react?tab=readme-ov-file
+import { motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
@@ -15,10 +16,7 @@ export default function ProjectTitle({ project }) {
       setInit(true);
     });
   }, []);
-  const particlesLoaded = (container) => {
-
-
-  };
+  const particlesLoaded = (container) => {};
   const options = useMemo(
     () => ({
       fullScreen: {
@@ -93,8 +91,6 @@ export default function ProjectTitle({ project }) {
     []
   );
 
-
-  
   if (init) {
     const classify = project.classification.split("/");
     return (
@@ -108,14 +104,24 @@ export default function ProjectTitle({ project }) {
             height="100%"
           />
           <div className="content">
-            <div>{project.title}</div>
-            <ul>
+            <motion.div
+              initial={{ x: 300 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.8, type: "keyframes" }}
+            >
+              {project.title}
+            </motion.div>
+            <motion.ul
+              initial={{ x: -300 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.8, type: "keyframes" }}
+            >
               {classify.map((cls, index) => (
                 <li key={index}>
                   <h2>{cls}</h2>
                 </li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
         </div>
       </>
